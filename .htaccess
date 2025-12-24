@@ -1,0 +1,8 @@
+RewriteEngine On
+
+# если запрошен корень — отправляем в /public/
+RewriteRule ^$ public/ [L]
+
+# все, что не начинается с /public/, переписываем на /public/...
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]
